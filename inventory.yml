@@ -1,0 +1,16 @@
+---
+ungrouped:
+  hosts:
+    jumpserver:
+      ansible_host:   192.168.0.156
+      become-method:  su
+      jumpip:         192.168.0.155
+      default_gw:     192.168.0.1
+      nameserver:     8.8.8.8
+      domain:         devonshire.local
+      network:        192.168.0.0
+      sunhost:        ultra
+      sunip:          192.168.0.155
+      sunmac:         08:00:20:cf:f1:e7
+      iso_name:       sol-10-u11-ga-sparc-dvd.iso
+      hexip:          C0A8009B

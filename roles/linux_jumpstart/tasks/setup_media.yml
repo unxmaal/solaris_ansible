@@ -1,0 +1,13 @@
+
+- name: create dir
+  file:
+    path: /data/jumpstart/solaris
+    state: directory
+
+- name: Mount iso
+  mount:
+    path: /data/jumpstart/solaris
+    src: /iso/{{ iso_name }}
+    opts: ro,loop
+    fstype: iso9660
+    state: present

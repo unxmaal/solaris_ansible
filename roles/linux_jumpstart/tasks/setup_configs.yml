@@ -1,0 +1,37 @@
+- name: bootparams
+  template:
+    src: templates/bootparams.j2
+    dest: /etc/bootparams
+
+- name: exports
+  blockinfile:
+    path: /etc/exports
+    block: |
+      /data/jumpstart    {{ network }}/24(fsid=0,ro,no_root_squash,crossmnt,no_subtree_check,sync)
+      /data/jumpstart    10.0.0.0/8(fsid=0,ro,no_root_squash,crossmnt,no_subtree_check,sync)
+      /data/jumpstart    127.0.0.0/8(fsid=0,ro,no_root_squash,crossmnt,no_subtree_check,sync)  
+
+- name: ethers
+  template:
+    src: templates/ethers.j2
+    dest: /etc/ethers
+
+
+- name: Add mappings to /etc/hosts
+  blockinfile:
+    path: /etc/hosts
+    block: |
+      {{ item.ip }} {{ item.name }}.{{ item.domain }} {{ item.name }}
+  with_items:
+    - { name: "{{ inventory_hostname }}", ip: "{{ jumpip }}", domain: "{{ domain }}" }
+    - { name: "{{ sunip }}", ip: "{{ sunhost }}", domain: "{{ domain }}" }
+
+- name: nfs-common
+  copy:
+    src: files/nfs-common
+    dest: /etc/default/nfs-common
+
+- name: nfs-kernel-server
+  copy:
+    src: files/nfs-kernel-server
+    dest: /etc/default/nfs-kernel-server

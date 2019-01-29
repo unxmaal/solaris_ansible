@@ -1,0 +1,11 @@
+- name: copy inetboot
+  copy:
+    src: /data/jumpstart/solaris/Solaris_10/Tools/Boot/platform/sun4u/inetboot
+    dest: /srv/tftp/inetboot.sun4u
+    remote_src: true
+
+- name: link inetboot
+  copy:
+    src: /srv/tftp/inetboot.sun4u
+    dest: /srv/tftp/{{ hexip }}
+    remote_src: true

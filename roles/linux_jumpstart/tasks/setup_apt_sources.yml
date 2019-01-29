@@ -1,0 +1,21 @@
+- apt_repository:
+    repo: deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main
+    state: present
+- apt_repository:
+    repo: deb http://ftp.debian.org/debian jessie main contrib non-free
+    state: present
+- apt_repository:
+    repo: deb-src http://ftp.debian.org/debian jessie main contrib non-free
+    state: present
+# - apt_repository:
+#     repo: deb http://security.debian.org/debian jessie main contrib non-free
+#     state: present
+# - apt_repository:
+#     repo: deb-src http://security.debian.org/debian jessie main contrib non-free
+#     state: present
+- apt_repository:
+    repo: deb http://ftp.debian.org/debian jessie-updates main contrib non-free
+    state: present
+- apt_repository:
+    repo: deb-src http://ftp.debian.org/debian jessie-updates main contrib non-free
+    state: present

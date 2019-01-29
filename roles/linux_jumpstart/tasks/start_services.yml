@@ -1,0 +1,12 @@
+- name: Restart services
+  service:
+    name: "{{ item }}"
+    state: restarted
+  with_items:
+    - tftpd-hpa
+    - rarpd
+    - bootparamd
+    - nfs-kernel-server
+  
+
+

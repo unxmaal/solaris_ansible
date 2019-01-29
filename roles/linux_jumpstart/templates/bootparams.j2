@@ -1,0 +1,4 @@
+{{ sunhost }}    root={{ inventory_hostname }}:/solaris/Solaris_10/Tools/Boot \
+         install={{ inventory_hostname }}:/solaris \
+         boottype=:in \
+         rootopts={{ inventory_hostname }}:rsize=32768

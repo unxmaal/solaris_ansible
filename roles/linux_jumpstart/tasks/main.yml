@@ -1,0 +1,6 @@
+- import_tasks: setup_apt_sources.yml
+- import_tasks: setup_virt.yml
+- import_tasks: setup_configs.yml
+- import_tasks: setup_media.yml
+- import_tasks: setup_inetboot.yml
+- import_tasks: start_services.yml
